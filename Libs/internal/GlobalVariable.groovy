@@ -12,11 +12,6 @@ public class GlobalVariable {
     /**
      * <p></p>
      */
-    public static Object baseUrl
-     
-    /**
-     * <p></p>
-     */
     public static Object successCode
      
     /**
@@ -31,7 +26,6 @@ public class GlobalVariable {
 			selectedVariables += TestCaseMain.getGlobalVariables(RunConfiguration.getExecutionProfile())
             selectedVariables += TestCaseMain.getParsedValues(RunConfiguration.getOverridingParameters(), selectedVariables)
     
-            baseUrl = selectedVariables['baseUrl']
             successCode = selectedVariables['successCode']
             globalId = selectedVariables['globalId']
             

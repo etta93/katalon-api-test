@@ -1,0 +1,26 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+web-service-tests - All Test Cases,,,,2023-09-11 00:09:53,2023-09-11 00:09:58,4.978s,PASSED
+,,,,,,,
+Test Cases/User/I can update existing user,,,,2023-09-11 00:09:53,2023-09-11 00:09:56,2.955s,PASSED
+"responseUpdate = sendRequest(findTestObject(""User/Update User"", [""variable"":""""]))",,,,2023-09-11 00:09:53,2023-09-11 00:09:56,2.461s,PASSED
+"verifyResponseStatusCode(responseUpdate, 200)",,,,2023-09-11 00:09:56,2023-09-11 00:09:56,0.052s,PASSED
+slurper = new groovy.json.JsonSlurper(),,,,2023-09-11 00:09:56,2023-09-11 00:09:56,0.011s,PASSED
+parsedJson = slurper.parseText(responseUpdate.getResponseText()),,,,2023-09-11 00:09:56,2023-09-11 00:09:56,0.016s,PASSED
+"assert parsedJson[""updatedAt""] instanceof java.lang.String",,,,2023-09-11 00:09:56,2023-09-11 00:09:56,0.016s,PASSED
+,,,,,,,
+Test Cases/User/I can see user detail by id,,,,2023-09-11 00:09:56,2023-09-11 00:09:57,0.661s,PASSED
+"response = sendRequest(findTestObject(""User/Get User Detail""))",,,,2023-09-11 00:09:56,2023-09-11 00:09:57,0.249s,PASSED
+"verifyResponseStatusCode(response, 200)",,,,2023-09-11 00:09:57,2023-09-11 00:09:57,0.006s,PASSED
+"verifyElementPropertyValue(response, ""data.id"", 2)",,,,2023-09-11 00:09:57,2023-09-11 00:09:57,0.052s,PASSED
+"verifyElementPropertyValue(response, ""data.email"", ""janet.weaver@reqres.in"")",,,,2023-09-11 00:09:57,2023-09-11 00:09:57,0.030s,PASSED
+"verifyElementPropertyValue(response, ""data.first_name"", ""Janet"")",,,,2023-09-11 00:09:57,2023-09-11 00:09:57,0.028s,PASSED
+"verifyElementPropertyValue(response, ""data.last_name"", ""Weaver"")",,,,2023-09-11 00:09:57,2023-09-11 00:09:57,0.020s,PASSED
+"verifyElementPropertyValue(response, ""data.avatar"", ""https://reqres.in/img/faces/2-image.jpg"")",,,,2023-09-11 00:09:57,2023-09-11 00:09:57,0.023s,PASSED
+,,,,,,,
+Test Cases/User/I can create new user,,,,2023-09-11 00:09:57,2023-09-11 00:09:58,0.879s,PASSED
+"responseCreate = sendRequest(findTestObject(""User/Create User""))",,,,2023-09-11 00:09:57,2023-09-11 00:09:58,0.628s,PASSED
+"verifyResponseStatusCode(responseCreate, 201)",,,,2023-09-11 00:09:58,2023-09-11 00:09:58,0.008s,PASSED
+slurper = new groovy.json.JsonSlurper(),,,,2023-09-11 00:09:58,2023-09-11 00:09:58,0.002s,PASSED
+parsedJson = slurper.parseText(responseCreate.getResponseText()),,,,2023-09-11 00:09:58,2023-09-11 00:09:58,0.001s,PASSED
+"assert parsedJson[""id""] instanceof java.lang.String",,,,2023-09-11 00:09:58,2023-09-11 00:09:58,0.001s,PASSED
+"assert parsedJson[""createdAt""] instanceof java.lang.String",,,,2023-09-11 00:09:58,2023-09-11 00:09:58,0.000s,PASSED
